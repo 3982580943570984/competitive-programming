@@ -22,13 +22,22 @@ int32_t main(){
 	for(int i{0}; i < s.size(); ++i) { char c = s[i] - 'a'; h += (int) c; diff[i] = c; }
 	cout << h << '\n';
 
+	if (diff.size() == 1) { return 0; }
+
 	auto mi = min_element(diff.begin(), diff.end());
-	auto ma = max_element(diff.begin(), diff.end());
+	auto ma = max_element(diff.rbegin(), diff.rend());
 
 	if(*ma - *mi > 0) {
 		swap(*ma, *mi);
 		for(auto c : diff) {
 			cout << static_cast<char> (c + 'a');
+		}
+	} else {
+		if (*ma != 'z' - 'a' && *ma != 0) {
+			*ma -= 1; *mi += 1;
+			for(auto c : diff) {
+				cout << static_cast<char> (c + 'a');
+			}
 		}
 	}
 

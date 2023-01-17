@@ -20,10 +20,10 @@ int distance[10]; // Расстояние между вершинами
 void bfs() {
 	while(!q.empty()) {
 		int search = q.front(); q.pop();
-		for(auto v : ads[search]) {
+		for(auto v : adj[search]) {
 			if(visited[v]) continue;
 			visited[v] = true;
-			distance[v] = distance[s] + 1;
+			distance[v] = distance[search] + 1;
 			q.push(v);
 		}
 	}
