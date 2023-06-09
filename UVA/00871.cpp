@@ -33,6 +33,8 @@ void dfs (i32 x, i32 y) {
   visited[x][y] = true;
   for (i32 i = 0; i < 8; ++i)
     dfs(x + dx[i], y + dy[i]);
+
+  ++sz;
 }
 
 i32 main() {
@@ -45,11 +47,16 @@ i32 main() {
 
   i32 t; cin >> t;
   cin.ignore();
+  cin.ignore();
   while (t--) {
     string str;
-    while(getline(cin, str) && !str.empty())
+    while(getline(cin, str)) {
+      if (str.empty()) {
+        debug(adj);
+        break;
+      }
       adj.push_back(str);
-
+    }
     visited.assign(adj.size(), vector<bool>(adj.front().size()));
 
     i32 ans = 0;
@@ -61,7 +68,8 @@ i32 main() {
           ans = max(ans, sz);
         }
 
-    printf("%d\n", ans);
+    t == 0 ? printf("%d\n", ans) : printf("%d\n\n", ans);
+    adj.clear();
   }
 
   return 0;
