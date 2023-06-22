@@ -1,0 +1,5 @@
+{
+	"directory": "./",
+	"command": "clang++ -std=c++20 -DLOCAL -I C:\msys64_new\mingw64\include\c++\12.2.0\x86_64-w64-mingw32\ -o project.exe",
+	"file": "*.cpp"
+}
