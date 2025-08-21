@@ -1,4 +1,7 @@
 {
   "image": "mcr.microsoft.com/devcontainers/cpp:dev-ubuntu-24.04",
-  "postCreateCommand": "sudo apt update && sudo apt install --yes g++-14 && sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-14 100"
+  "features": {
+    "ghcr.io/devcontainers-community/features/gcc": {},
+    "ghcr.io/devcontainers-community/features/llvm:3": {}
+  }
 }
